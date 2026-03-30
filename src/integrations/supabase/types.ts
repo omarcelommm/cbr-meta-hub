@@ -14,7 +14,183 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      mentorados: {
+        Row: {
+          cidade: string | null
+          especialidade: string | null
+          id: string
+          nome: string | null
+          user_id: string | null
+        }
+        Insert: {
+          cidade?: string | null
+          especialidade?: string | null
+          id?: string
+          nome?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          cidade?: string | null
+          especialidade?: string | null
+          id?: string
+          nome?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      metas_mensais: {
+        Row: {
+          ano: number
+          cenario_escolhido: string | null
+          dias_trabalhados: number
+          id: string
+          mentorado_id: string
+          mes: number
+          meta_escolhida: number
+          pct_otimista: number
+          pct_pessimista: number
+          pct_realista: number
+        }
+        Insert: {
+          ano: number
+          cenario_escolhido?: string | null
+          dias_trabalhados?: number
+          id?: string
+          mentorado_id: string
+          mes: number
+          meta_escolhida?: number
+          pct_otimista?: number
+          pct_pessimista?: number
+          pct_realista?: number
+        }
+        Update: {
+          ano?: number
+          cenario_escolhido?: string | null
+          dias_trabalhados?: number
+          id?: string
+          mentorado_id?: string
+          mes?: number
+          meta_escolhida?: number
+          pct_otimista?: number
+          pct_pessimista?: number
+          pct_realista?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "metas_mensais_mentorado_id_fkey"
+            columns: ["mentorado_id"]
+            isOneToOne: false
+            referencedRelation: "mentorados"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      snapshots_horarios: {
+        Row: {
+          created_at: string
+          horario: string
+          id: string
+          orcado: number
+          realizado: number
+          venda_diaria_id: string
+        }
+        Insert: {
+          created_at?: string
+          horario: string
+          id?: string
+          orcado?: number
+          realizado?: number
+          venda_diaria_id: string
+        }
+        Update: {
+          created_at?: string
+          horario?: string
+          id?: string
+          orcado?: number
+          realizado?: number
+          venda_diaria_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "snapshots_horarios_venda_diaria_id_fkey"
+            columns: ["venda_diaria_id"]
+            isOneToOne: false
+            referencedRelation: "vendas_diarias"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      vendas_diarias: {
+        Row: {
+          clientes_unicos: number
+          consultas: number
+          created_at: string
+          data: string
+          dia_trabalhado: boolean
+          hiperbarica: number
+          id: string
+          injetaveis: number
+          mentorado_id: string
+          no_shows: number
+          observacao: string | null
+          orcado_total: number
+          outros: number
+          pacientes_novos: number
+          procedimentos: number
+          slots_agenda: number
+          slots_ocupados: number
+          updated_at: string
+        }
+        Insert: {
+          clientes_unicos?: number
+          consultas?: number
+          created_at?: string
+          data: string
+          dia_trabalhado?: boolean
+          hiperbarica?: number
+          id?: string
+          injetaveis?: number
+          mentorado_id: string
+          no_shows?: number
+          observacao?: string | null
+          orcado_total?: number
+          outros?: number
+          pacientes_novos?: number
+          procedimentos?: number
+          slots_agenda?: number
+          slots_ocupados?: number
+          updated_at?: string
+        }
+        Update: {
+          clientes_unicos?: number
+          consultas?: number
+          created_at?: string
+          data?: string
+          dia_trabalhado?: boolean
+          hiperbarica?: number
+          id?: string
+          injetaveis?: number
+          mentorado_id?: string
+          no_shows?: number
+          observacao?: string | null
+          orcado_total?: number
+          outros?: number
+          pacientes_novos?: number
+          procedimentos?: number
+          slots_agenda?: number
+          slots_ocupados?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vendas_diarias_mentorado_id_fkey"
+            columns: ["mentorado_id"]
+            isOneToOne: false
+            referencedRelation: "mentorados"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
