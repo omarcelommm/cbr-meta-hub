@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 65% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 222 55% 13%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 222 55% 13%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 220 90% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 50% 19%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 222 45% 22%;
+    --muted-foreground: 220 15% 55%;
+
+    --accent: 220 90% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 40% 20%;
+    --input: 222 50% 19%;
+    --ring: 220 90% 60%;
+
+    --radius: 0.75rem;
+
+    /* Zone colors */
+    --zone-critico: 0 75% 55%;
+    --zone-atencao: 38 95% 55%;
+    --zone-ritmo: 220 90% 60%;
+    --zone-superando: 142 70% 45%;
+
+    /* Category colors */
+    --cat-consultas: 220 90% 60%;
+    --cat-injetaveis: 270 70% 60%;
+    --cat-procedimentos: 180 65% 45%;
+    --cat-hiperbarica: 38 95% 55%;
+    --cat-outros: 220 15% 55%;
+
+    --sidebar-background: 222 55% 11%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 220 90% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 50% 19%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 222 40% 18%;
+    --sidebar-ring: 220 90% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .card-dark {
+    @apply bg-card rounded-xl border border-white/10 shadow-lg;
+  }
+  .input-dark {
+    @apply bg-[hsl(222,50%,19%)] border border-white/15 rounded-lg px-3 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-1 focus:ring-blue-500 w-full;
+  }
+  .label-meta {
+    @apply text-xs font-semibold tracking-widest uppercase text-white/40;
+  }
+  .kpi-value {
+    @apply text-2xl font-bold text-white;
+  }
+  .zone-critico { @apply text-red-400; }
+  .zone-atencao { @apply text-amber-400; }
+  .zone-ritmo { @apply text-blue-400; }
+  .zone-superando { @apply text-green-400; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar { display: none; }
