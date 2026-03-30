@@ -23,10 +23,10 @@ export default function App() {
           <AuthProvider>
             <Routes>
               <Route path="/login" element={<LoginPage />} />
-              <Route path="/hoje" element={<ProtectedRoute adminOnly><HojePage /></ProtectedRoute>} />
-              <Route path="/semana" element={<ProtectedRoute adminOnly><SemanaPage /></ProtectedRoute>} />
-              <Route path="/mes" element={<ProtectedRoute adminOnly><MesPage /></ProtectedRoute>} />
-              <Route path="/historico" element={<ProtectedRoute adminOnly><HistoricoPage /></ProtectedRoute>} />
+              <Route path="/hoje" element={<ProtectedRoute><HojePage /></ProtectedRoute>} />
+              <Route path="/semana" element={<ProtectedRoute><SemanaPage /></ProtectedRoute>} />
+              <Route path="/mes" element={<ProtectedRoute><MesPage /></ProtectedRoute>} />
+              <Route path="/historico" element={<ProtectedRoute><HistoricoPage /></ProtectedRoute>} />
               <Route path="/admin" element={<ProtectedRoute adminOnly><AdminPage /></ProtectedRoute>} />
               <Route path="/" element={<Navigate to="/hoje" replace />} />
               <Route path="*" element={<NotFound />} />
